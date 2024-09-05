@@ -54,9 +54,9 @@ spec:
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
-  commonName: f1f78f11-ac30-42ef-948b-8905a4793525.lb.civo.com
+  commonName: ---REPLACE-ME---
   dnsNames:
-  - f1f78f11-ac30-42ef-948b-8905a4793525.lb.civo.com
+  - ---REPLACE-ME---
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -68,7 +68,7 @@ metadata:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-  - host: f1f78f11-ac30-42ef-948b-8905a4793525.lb.civo.com
+  - host: ---REPLACE-ME---
     http:
       paths:
       - path: /
@@ -80,5 +80,5 @@ spec:
               number: 80
   tls:
   - hosts:
-    - f1f78f11-ac30-42ef-948b-8905a4793525.lb.civo.com
+    - ---REPLACE-ME---
     secretName: echoer
