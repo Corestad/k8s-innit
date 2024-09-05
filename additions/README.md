@@ -19,6 +19,7 @@ kubectl --namespace kasten-io port-forward service/gateway 8080:80;
 ```
 
 The dashboard will be reachable at [localhost:8080](localhost:8080)
+
 ---
 
 To track already running deployments:
