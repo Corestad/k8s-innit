@@ -22,3 +22,5 @@ helm install --create-namespace --namespace rook-ceph rook-ceph-cluster --set op
 
 > [!NOTE]
 > Check out the corresponding [directory](rook-ceph/) for examples.
+
+Check the [examples](examples/) for a shared filesystem or go to the [documentation](https://rook.io/docs/rook/latest-release/Storage-Configuration/Shared-Filesystem-CephFS/filesystem-storage/) for detailed informations.
