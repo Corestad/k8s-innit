@@ -18,7 +18,7 @@ To access the Dashboard without an Ingress:
 kubectl --namespace kasten-io port-forward service/gateway 8080:80;
 ```
 
-The dashboard will be reachable at [localhost:8080](localhost:8080)
+The dashboard will be reachable at [localhost:8080](http://localhost:8080)
 
 ---
 
