@@ -1,0 +1,41 @@
+# replace the ---REPLEACE-ME--- with the domain name you would like to use
+# NOTE: domain name should already point to the IP of the Treafik LB
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: example
+  namespace: default
+spec:
+  secretName: example
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: ---REPLACE-ME---
+  dnsNames:
+  - ---REPLACE-ME---
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example
+  namespace: default
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: traefik
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: ---REPLACE-ME---
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: example-service
+            port:
+              number: 80
+  tls:
+  - hosts:
+    - ---REPLACE-ME---
+    secretName: example
