@@ -14,8 +14,10 @@ To connect to one we should create a new Secret with informations about the conn
 Depending on the Registry a password generation for the registry may vary, but once you have it add it to the clust to the default namespace.
 
 ```
-kubectl create secret docker-registry theprivateregistry --docker-server=<https://your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
+kubectl create secret docker-registry theprivateregistry --docker-server=<https://your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email> [-n <custom-namespace>]
 ```
+> [!NOTE]
+> Careful with the namespace since Secrets can't travers through namespaces, so create the secret in the NS wher you will use it!
 
 After it is added use it on configurartions where you want to pull a container from this repository
 
