@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: db-credentials-1
+type: Opaque
+data:
+  username: <base64_encoded_username>
+  password: <base64_encoded_password>
+  hostname: <base64_encoded_hostname>
+  port: <base64_encoded_port>
+  dbname: <base64_encoded_dbname>
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: your-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: your-app
+  template:
+    metadata:
+      labels:
+        app: your-app
+    spec:
+      containers:
+        - name: your-container
+          image: your-image
+          env:
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials-1
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials-1
+                  key: password
+            - name: DB_HOSTNAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials-1
+                  key: hostname
+            - name: DB_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials-1
+                  key: port
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials-1
+                  key: dbname

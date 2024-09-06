@@ -12,3 +12,6 @@ Use the above commands to init some basic services onto the cluster.
 
 ## Usefull additions
 [Check out usefull additions to every cluster](additions/README.md)
+
+## External necessities
+[Check out externals](externals/README.md)
